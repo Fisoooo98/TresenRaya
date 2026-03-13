@@ -1,0 +1,38 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+class JuegoTresEnRaya {
+    - tablero: Tablero
+    - jugador1: Jugador
+    - jugador2: Jugador
+    - turnoActual: Jugador
+    + iniciarJuego()
+    + cambiarTurno()
+    + verificarGanador(): Jugador
+    + hayEmpate(): boolean
+}
+
+class Tablero {
+    - celdas: Celda[3][3]
+    + colocarMarca(fila:int, col:int, simbolo:char): boolean
+    + tableroLleno(): boolean
+}
+
+class Celda {
+    - fila: int
+    - columna: int
+    - simbolo: char
+    + estaVacia(): boolean
+}
+
+class Jugador {
+    - nombre: String
+    - simbolo: char
+    + hacerMovimiento(fila:int, col:int)
+}
+
+JuegoTresEnRaya --> Tablero
+JuegoTresEnRaya --> Jugador
+Tablero --> Celda
+
+@enduml
+@enduml
